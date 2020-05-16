@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<head>
+<meta charset="utf-8" />
+<title>Ajouter Conseiller</title>
+</head>
+<body style="background-image:url(data:image/png;base64,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);background-size:cover;">
+<header>
+		<div class="navbar navbar-default" style="background-color: #2F4F4F">
+			<div class="container-fluid">
+
+				<ul class="nav navbar-nav">
+					<li><a style="color:white" th:href="@{/ajouterGerant}">AjouterGerant</a></li>
+					<li><a style="color:white" th:href="@{/ajouterConseiller}">AjouterConseiller</a></li>
+					<li><a style="color:white" th:href="@{/listeConseiller}">ListeConseiller</a></li>
+<!-- 					<li><a th:href="@{/ajouterClient}">AjouterClient</a></li> -->
+<!-- 					<li><a th:href="@{/listeClient}">ListeClient</a></li> -->
+<!-- 					<li><a th:href="@{/operations}">Comptes</a></li> -->
+				</ul>
+								</ul>
+					<ul class="nav navbar-nav navbar-right">
+					<li><a style="color:white" th:href="@{/login?logout}">logOut</a></li>
+				</ul>
+			</div>
+		</div>
+	</header> 
+
+<!-- 	<div class="container mt-5">
+		<div class="col-md-6">
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">Ajouter un conseiller</div>
+				<div class="panel-body">
+
+					<form th:action="@{/ajouteduconseiller}" method="post">
+						<div class="form-group">
+							<label class="control-label">nom de conseiller:</label>
+							 <input
+								class="form-control" type="text" name="nom"
+								th:value="${conseiller.nom}" />
+						</div>
+						<div class="form-group">
+						<label class="control-label">nom de gerant</label>
+							<select name="id" class="form-control" th:field="*{gerante}" >
+								<option th:each="e:${gerante}" th:text="${e.nom}"
+									th:value="${e.id}" ></option>
+							</select>
+						</div>
+
+						<button type="submit" class="btn btn-primary">OK</button>
+					</form>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div> -->
+
+
+	<div class="container mt-5">
+		<div class="col-md-6">
+<div sec:authorize="hasRole('ROLE_GERANT')">
+			<div class="panel panel-primary">
+				<div class="panel-heading" style="background-color:#00FA9A; color:black">Ajouter un conseiller</div>
+				<div class="panel-body">
+
+					<form th:action="@{/ajouteduconseiller}" method="post" th:object="${conseiller}">
+						<div class="form-group">
+							<label class="control-label">nom de conseiller:</label>
+							 <input
+								class="form-control" type="text" th:field="*{nom}" />
+						</div>
+						<div class="form-group">
+						<label class="control-label">nom de gerant</label>
+							 <select th:field="*{gerant}">
+							 <option value=""> -- </option>
+                         <option th:each="gero : ${listeGerant}"
+                            th:value="${gero.id}"
+                            th:utext="${gero.nom}"/>
+                  </select>
+						</div>
+
+						<button type="submit" class="btn btn-primary" style="background-color:#2F4F4F; color:white">OK</button>
+					</form>
+				</div>
+
+			</div>
+</div>
+		</div>
+
+	</div>
+
+
+</body>
+</html>
